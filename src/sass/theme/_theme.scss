@@ -1,2 +1,211 @@
 // This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
-$green: #bada55;
+$primary: #fcc91b;
+$secondary: #008000;
+
+// Header / Top Bar
+
+#top-bar {
+	color: $gray-600;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid $gray-200;
+
+	.top-bar__list {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#top-bar {
+		display: none;
+	}
+}
+
+// Main Nav
+#main-nav {
+	background-color: $white;
+	border-bottom: 1px solid $gray-200;
+
+	#main-menu {
+		align-items: center;
+	}
+
+	.menu-item {
+		.nav-link {
+			font-weight: 500;
+			color: $black;
+			padding: 0;
+			position: relative;
+		}
+	}
+
+	.menu-item:not(:last-child) {
+		.nav-link {
+			margin-right: 2rem;
+		}
+
+		.nav-link::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			transform: scaleX(0);
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: $primary;
+			transform-origin: bottom left;
+			transition: transform 0.25s ease-out;
+		}
+
+		.nav-link:hover::before {
+			transform: scaleX(1);
+			transform-origin: bottom left;
+		}
+	}
+
+	.menu-item:last-child {
+		.nav-link {
+			background: $primary;
+			border: 1px solid transparent;
+			border-radius: 1.5rem;
+			padding: 0.5rem 1.5rem;
+
+			&:hover {
+				background: transparent;
+				border: 1px solid $primary;
+				color: $black;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#main-nav {
+		#main-menu {
+			align-items: start;
+		}
+
+		.menu-item:first-child {
+			.nav-link {
+				margin-top: 0.5rem;
+			}
+		}
+
+		.menu-item:not(:last-child) {
+			.nav-link {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
+
+// Template Home / Hero
+.hero {
+	background-image: url("../images/IMG_8494_2560w.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	position: relative;
+
+	&::before {
+		content: "";
+		background: #000;
+		width: 100%;
+		height: 100%;
+		opacity: 0.7;
+		position: absolute;
+		top: 0;
+	}
+
+	.hero__body {
+		height: 100vh;
+	}
+	.hero__heading,
+	.hero__subheading {
+		color: $white;
+		z-index: 1;
+	}
+
+	.hero__cta {
+		border-radius: 1.5rem;
+		font-weight: 500;
+		// padding: 0.5rem 3.25rem 0.5rem 1.75rem;
+		padding: 0.5rem 1.5rem;
+		position: relative;
+		z-index: 1;
+
+		&:hover {
+			background: transparent;
+			color: $white;
+		}
+
+		.hero__cta-icon {
+			position: absolute;
+			right: 1.25rem;
+			top: 7px;
+			transition: transform 0.25s ease-out;
+		}
+
+		&:hover .hero__cta-icon {
+			transform: translateX(25%);
+		}
+	}
+
+	.hero__link {
+		color: $white;
+		font-weight: 500;
+		text-decoration: none;
+		z-index: 1;
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: "";
+			width: 100%;
+			transform: scaleX(0);
+			height: 2px;
+			bottom: 0;
+			left: 0;
+			background-color: $primary;
+			transform-origin: bottom left;
+			transition: transform 0.25s ease-out;
+		}
+
+		&:hover::before {
+			transform: scaleX(1);
+			transform-origin: bottom left;
+		}
+
+		.hero__link-icon {
+			margin-left: 0.15rem;
+			position: absolute;
+			left: 100%;
+			top: 0;
+			transition: transform 0.25s ease-out;
+		}
+
+		&:hover .hero__link-icon {
+			transform: translateX(25%);
+		}
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.hero {
+		background-image: url("../images/IMG_8494");
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	.hero {
+		background-image: url("../images/IMG_8494_1920w");
+		background-position: 50%;
+	}
+}
+
+// @media screen and (max-width: 768px) {
+// 	.hero {
+// 		height: 50vh;
+// 	}
+// }
